@@ -1,0 +1,35 @@
+1. Log in page - must show and apply default credentials
+2. Successfull Signin -->
+
+3. Main.html:::
+	1. Navbar
+	2. Initially All
+		i. all issue section(dynamic issues number)
+		ii. get the data through API
+	3. Card
+		i. priority badge with colour- High Red,Medium Yellow, Low Gray
+			*can make one function which will take the priority and return badge with design
+		ii. Open, Close logo
+		iii. BUG, HELP WANTED, ENHANCEMENT badge and with different colour or yellow highlighter
+		iv. Card Border- green for open, purple for close
+	4. Open, Closed button toggle
+	5. Modal by single details API
+		i. priority badge with colour- High Red(little different from card),Medium Yellow, Low Gray
+		ii. open, close badge
+	6. Loading Spinner (Challenge)
+	7. Search Functionality with API (Challenge)
+
+
+
+My Plan::
+
+1. Create one issue container
+	i. loadIssue(), loadOpen(), loadClosed()
+	i. displayIssue((issues) )for all--> it'll empty itself first and then append
+
+2. Card
+	i. fetch the cards and displayIssue(issues) with minimal design--
+		* no design for open, close logo..use ternary and png
+		* use function(labels) which will return btns of add bug, help, enhance icon(fontawesome)+ css 
+	ii. styleIssue(card) will be called inside cards.forEach() inside displayIssue();
+
