@@ -1,11 +1,16 @@
 document.getElementById('login-btn').addEventListener('click', ()=>{
     console.log("hello");
-    const username = document.getElementById('input-username').value;
-    const password = document.getElementById('input-password').value;
+    const inputUsername = document.getElementById('input-username');
+    const inputPassword = document.getElementById('input-password');
+
+    const username = inputUsername.value;
+    const password = inputPassword.value;
 
     if(username === 'admin' && password === 'admin123'){
         window.location.assign("./home.html");
     }else{
-        alert('wrong credentials')
+        alert('wrong credentials');
+        inputUsername.value = '';
+        inputPassword.value = '';
     }
 })
