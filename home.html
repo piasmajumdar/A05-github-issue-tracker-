@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="bg-[#F8FAFC]">
 
 <head>
     <meta charset="UTF-8">
@@ -17,6 +17,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
 
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!--Internal Style -->
     <style>
         * {
@@ -26,7 +30,30 @@
 </head>
 
 <body>
-    <h2>Home Page</h2>
+    <!-- Navbar -->
+    <header class="bg-white">
+        <nav class="flex flex-col sm:flex-row justify-between items-center w-[90%] mx-auto border-b border-b-[#E9E9E9] p-4">
+            <div class="flex gap-1">
+                <img class="h-9 w-9" src="./assets/github-logo.png" alt="">
+                <p class="text-[#1F2937] font-semibold text-2xl">GitHub Issues Tracker</p>
+            </div>
+
+            <div>
+                <div class="flex gap-4">
+                    <div>
+                        <label class="input validator join-item text-[#64748B]">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <input id="input-search" type="text" class="text-[16px] rounded-[4px]" placeholder="Search issues..." required />
+                        </label>
+                    </div>
+                    <button id="search-btn" class="btn btn-primary join-item text-white rounded-[4px]"><i
+                            class="fa-solid fa-plus"></i>New Issue</button>
+                </div>
+            </div>
+
+        </nav>
+
+    </header>
 
 
     <script src="./script/home.js"></script>
