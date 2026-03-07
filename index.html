@@ -27,7 +27,7 @@
 
 <body>
     <!-- Sign In Section -->
-    <main class="w-[520px] mx-auto my-4 bg-white p-8 space-y-6 shadow-md rounded-lg">
+    <main class=" w-[80%] md:w-[50%] lg:w-[520px] mx-auto my-4 bg-white p-2 lg:p-8 space-y-6 shadow-md rounded-lg">
         <img class="mx-auto" src="./assets/github-logo.png" alt="">
         <div>
             <h2 class="text-center font-semibold text-2xl text-[#000000]">GitHub Issues Tracker</h2>
@@ -35,8 +35,7 @@
         </div>
 
         <!-- Signin form -->
-        <form class="fieldset rounded-box p-4">
-            <legend class="fieldset-legend"></legend>
+        <fieldset class="fieldset rounded-box p-4">
 
             <label class="text-[16px] font-medium">Username</label>
             <input type="text" class="input w-full" placeholder="Enter Username" />
@@ -46,8 +45,8 @@
             <input type="password" class="input w-full" placeholder="Enter Password" />
             <p class="text-[14px] text-[#4A00FF]">Default: admin123</p>
 
-            <button class="btn btn-primary mt-4 font-semibold">Sign In</button>
-        </form>
+            <button id="login-btn" class="btn btn-primary mt-4 font-semibold">Sign In</button>
+        </fieldset>
 
         <div class="divider">OR</div>
 
