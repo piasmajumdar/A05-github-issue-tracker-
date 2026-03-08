@@ -30,30 +30,101 @@
 </head>
 
 <body>
-    <!-- Navbar -->
-    <header class="bg-white">
-        <nav class="flex flex-col sm:flex-row justify-between items-center w-[90%] mx-auto border-b border-b-[#E9E9E9] p-4">
-            <div class="flex gap-1">
-                <img class="h-9 w-9" src="./assets/github-logo.png" alt="">
-                <p class="text-[#1F2937] font-semibold text-2xl">GitHub Issues Tracker</p>
-            </div>
-
-            <div>
-                <div class="flex gap-4">
-                    <div>
-                        <label class="input validator join-item text-[#64748B]">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                            <input id="input-search" type="text" class="text-[16px] rounded-[4px]" placeholder="Search issues..." required />
-                        </label>
-                    </div>
-                    <button id="search-btn" class="btn btn-primary join-item text-white rounded-[4px]"><i
-                            class="fa-solid fa-plus"></i>New Issue</button>
+    <main>
+        <!-- Navbar -->
+        <header class="bg-white border-b border-b-[#E9E9E9]">
+            <nav class="flex flex-col sm:flex-row justify-between items-center w-[90%] mx-auto p-4">
+                <div class="flex gap-1">
+                    <img class="h-9 w-9" src="./assets/github-logo.png" alt="">
+                    <p class="text-[#1F2937] font-semibold text-2xl">GitHub Issues Tracker</p>
                 </div>
+
+                <div>
+                    <div class="flex gap-4">
+                        <div>
+                            <label class="input validator join-item text-[#64748B]">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                                <input id="input-search" type="text" class="text-[16px] rounded-[4px]"
+                                    placeholder="Search issues..." required />
+                            </label>
+                        </div>
+                        <button id="search-btn" class="btn btn-primary join-item text-white rounded-[4px]"><i
+                                class="fa-solid fa-plus"></i>New Issue</button>
+                    </div>
+                </div>
+
+            </nav>
+
+        </header>
+
+
+        <!-- Main Part -->
+        <section class="w-[70%] mx-auto">
+
+            <!-- Active Buttons -->
+            <div class="rounded-lg shadow-md bg-white p-6 mt-[60px] space-x-2   ">
+                <button class="btn btn-primary border-[#E4E4E7] w-[120px]">All</button>
+                <button class="btn btn-outline border-[#E4E4E7] w-[120px]">Open</button>
+                <button class="btn btn-outline border-[#E4E4E7] w-[120px]">Closed</button>
             </div>
 
-        </nav>
+            <!-- Issues -->
+            <div class="rounded-lg bg-white mt-4 shadow-md">
+                <!-- Issue Count -->
+                <div class="flex justify-between items-center p-6 border-b border-b-[#E4E4E7]">
+                    <!-- left -->
+                    <div class="flex gap-2">
+                        <div class="h-[50px] w-[50px] rounded-full bg-[#ECE4FF] flex justify-center items-center">
+                            <img src="./assets/Aperture.png" alt="">
+                        </div>
+                        <div>
+                            <h2 class="font-semibold text-xl"><span id="count-issue">50</span> Issues</h2>
+                            <p class="text-[#64748B]">Track and manage your project issues</p>
+                        </div>
+                    </div>
+                    <!-- right -->
+                    <div class="flex gap-4">
+                        <p><i class="fa-solid fa-circle text-[#00A96E]"></i> Open</p>
+                        <p><i class="fa-solid fa-circle text-[#A855F7]"></i> Closed</p>
+                    </div>
 
-    </header>
+                </div>
+
+                <!-- Issue Container -->
+                <div class="grid grid-cols-4 gap-3 bg-[#FBFBFB] p-6">
+                    <div class="card bg-white shadow-lg border-t-4">
+                        <!-- Upper -->
+                        <div class="card-body text-[12px] p-4">
+                            <div class="flex justify-between items-center">
+                                <img src="./assets/Open-Status.png" alt="">
+                                <button class="badge badge-error badge-soft font-bold p-4 rounded-full text-[12px]">HIGH</button>
+                            </div>
+                            <h2 class="card-title text-[14px] font-semibold">Fix navigation menu on mobile devices</h2>
+                            <p class="text-[#64748B]">The navigation menu doesn't collapse properly on mobile devices...</p>
+                            <div>
+                                <button class="border-2 border-red-300 bg-red-100 text-red-400 font-semibold rounded-full p-2"><i class="fa-solid fa-bug"></i> BUG</button>
+                                <button class="border-2 border-yellow-300 bg-yellow-100 text-yellow-600 font-semibold rounded-full p-2"><i class="fa-regular fa-life-ring"></i> HELP WANTED</button>
+                            </div>
+                        </div>
+                        <div class="divider m-0"></div>
+                        <!-- Lower -->
+                        <div class="p-4 text-[#64748B] text-[12px]">
+                            <p>#1 by john_doe</p>
+                            <p>1/15/2024</p>
+
+                        </div>
+
+                    </div>
+
+
+
+
+                </div>
+
+            </div>
+
+        </section>
+    </main>
 
 
     <script src="./script/home.js"></script>
