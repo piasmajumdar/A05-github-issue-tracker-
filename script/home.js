@@ -10,6 +10,8 @@ const closedButton = document.getElementById('closed-btn');
 
 const issueModal = document.getElementById('issueModal');
 
+const spinner = document.getElementById('spinner');
+
 function clearBtn() {
     allButton.classList.remove('btn-primary');
     openButton.classList.remove('btn-primary');
@@ -17,6 +19,7 @@ function clearBtn() {
 }
 
 const loadIssue = async () => {
+    spinner.classList.remove('hidden');
     url = "https://phi-lab-server.vercel.app/api/v1/lab/issues";
     const res = await fetch(url);
     const data = await res.json();
@@ -25,6 +28,7 @@ const loadIssue = async () => {
     displayData(issues);
 }
 const loadAll = async () => {
+    spinner.classList.remove('hidden');
     url = "https://phi-lab-server.vercel.app/api/v1/lab/issues";
     const res = await fetch(url);
     const data = await res.json();
@@ -35,6 +39,7 @@ const loadAll = async () => {
     displayData(issues);
 }
 const loadOpen = async () => {
+    spinner.classList.remove('hidden');
     url = "https://phi-lab-server.vercel.app/api/v1/lab/issues";
     const res = await fetch(url);
     const data = await res.json();
@@ -46,6 +51,7 @@ const loadOpen = async () => {
     displayData(openIssues);
 }
 const loadClosed = async () => {
+    spinner.classList.remove('hidden');
     url = "https://phi-lab-server.vercel.app/api/v1/lab/issues";
     const res = await fetch(url);
     const data = await res.json();
@@ -131,6 +137,7 @@ const displayData = (issues) => {
                     </div>
         `
         issueContainer.append(div);
+        spinner.classList.add('hidden');
     });
 }
 
@@ -201,9 +208,10 @@ async function openDetailsModal(issueId) {
 
 async function searchIssue(){
     clearBtn();
-    
+
     const searchText =  searchInput.value;
-    
+
+    spinner.classList.remove('hidden');
     url = `https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchText}`;
     const res = await fetch(url);
     const data = await res.json();

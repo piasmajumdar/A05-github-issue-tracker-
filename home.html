@@ -48,7 +48,8 @@
                                     placeholder="Search issues..." required />
                             </label>
                         </div>
-                        <button id="search-btn" onclick="searchIssue()" class="btn btn-primary join-item text-white rounded-[4px]"><i
+                        <button id="search-btn" onclick="searchIssue()"
+                            class="btn btn-primary join-item text-white rounded-[4px]"><i
                                 class="fa-solid fa-plus"></i>New Issue</button>
                     </div>
                 </div>
@@ -90,41 +91,17 @@
 
                 </div>
 
+                <!-- Loading Spinner -->
+                <div id="spinner" class="flex justify-center items-center bg-[#FBFBFB] h-[50vh] hidden">
+                    <span class="loading loading-spinner loading-xl"></span>
+                </div>
+
+
                 <!-- Issue Container -->
                 <div id="issue-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 bg-[#FBFBFB] p-6">
 
                     <!-- Single Issue -->
-                    <div onclick="openDetailsModal()" class="card bg-white shadow-lg border-t-4 border-t-purple-600">
-                        <!-- Upper -->
-                        <div class="card-body text-[12px] p-4 flex flex-col justify-between">
-                            <div class="flex justify-between items-center">
-                                <img src="./assets/Open-Status.png" alt="">
-                                <button
-                                    class="badge badge-error badge-soft font-bold p-4 rounded-full text-[12px]">HIGH</button>
-                            </div>
-                            <h2 class="card-title text-[14px] font-semibold">Fix navigation menu on mobile devices</h2>
-                            <h2 class="text-[#64748B] line-clamp-2 overflow-hidden ">The navigation menu doesn't
-                                collapse properly on mobile devices. Need to fix the responsive behavior.</h2>
-                            <div class="flex gap-1 flex-wrap">
-                                <button
-                                    class="badge badge-outline badge-error rounded-full font-medium text-[12px] bg-red-100"><i
-                                        class="fa-solid fa-bug"></i>BUG</button>
-                                <button
-                                    class="badge badge-outline badge-warning rounded-full font-medium text-[12px] bg-yellow-100"><i
-                                        class="fa-regular fa-life-ring"></i> HELP WANTED</button>
-                                <!-- <button class="badge badge-outline badge-success rounded-full font-medium text-[12px] bg-green-100"><img src="./assets/Sparkle.png" alt=""> ENHANCEMENT</button> -->
 
-                            </div>
-                        </div>
-                        <div class="divider m-0"></div>
-                        <!-- Lower -->
-                        <div class="p-4 text-[#64748B] text-[12px]">
-                            <p>#1 by john_doe</p>
-                            <p>1/15/2024</p>
-
-                        </div>
-
-                    </div>
 
                 </div>
 
@@ -136,7 +113,8 @@
                             <div>
                                 <h2 class="font-bold text-2xl">Fix broken image uploads</h2>
                                 <div class="flex gap-2 items-center">
-                                    <div class="badge bg-green-600 text-white rounded-full text-[12px] font-medium">Opened</div>
+                                    <div class="badge bg-green-600 text-white rounded-full text-[12px] font-medium">
+                                        Opened</div>
                                     <p class="text-[12px] text-[#64748B]">• Opened by Fahim Ahmed • 22/02/2026</p>
                                 </div>
                             </div>
@@ -162,7 +140,8 @@
                                 </div>
                                 <div>
                                     <h3 class="text-[#64748B]">Priority:</h3>
-                                    <div class="badge bg-red-600 text-white rounded-full text-[12px] font-medium">HIGH</div>
+                                    <div class="badge bg-red-600 text-white rounded-full text-[12px] font-medium">HIGH
+                                    </div>
                                 </div>
                             </div>
 
@@ -177,6 +156,8 @@
                 </div>
 
             </div>
+
+
 
         </section>
     </main>
