@@ -1,10 +1,32 @@
 const issueContainer = document.getElementById('issue-container');
+const countIssueElement = document.getElementById('count-issue');
+
+const allButton = document.getElementById('all-btn');
+const openButton = document.getElementById('open-btn');
+const closedButton = document.getElementById('closed-btn');
+
 
 const loadIssue = async () => {
     url = "https://phi-lab-server.vercel.app/api/v1/lab/issues";
     const res = await fetch(url);
     const data = await res.json();
-    displayData(data.data);
+    const issues = data.data;
+
+    allButton.addEventListener('click', () => {
+        displayData(issues);
+        return;
+    });
+    openButton.addEventListener('click', () => {
+        const openIssues = issues.filter(e => e.status == 'open');
+        displayData(openIssues);
+        return;
+    });
+    closedButton.addEventListener('click', () => {
+        const closedIssues = issues.filter(e => e.status == 'closed');
+        displayData(closedIssues);
+        return;
+    });
+    displayData(issues);
 }
 
 
@@ -26,8 +48,6 @@ const loadIssue = async () => {
 const displayData = (issues) => {
     const createLabels = (labels) => {
         // ['enhancement', 'help wanted']
-        //<button class="badge badge-outline badge-error rounded-full font-medium text-[12px] bg-red-100"><i class="fa-solid fa-bug"></i>BUG</button>
-        //<button class="badge badge-outline badge-warning rounded-full font-medium text-[12px] bg-yellow-100"><i class="fa-regular fa-life-ring"></i> HELP WANTED</button>
         const labelBadges = labels.map(label => {
             if (label.trim().toLowerCase() == 'bug') {
                 return `<button class="badge badge-outline badge-error rounded-full font-medium text-[12px] bg-red-100"><i class="fa-solid fa-bug"></i>${label.toUpperCase()}</button>`;
@@ -49,8 +69,9 @@ const displayData = (issues) => {
         return labelBadges;
     };
 
+    countIssueElement.innerText = issues.length;
 
-    // issueContainer.innerHTML = '';
+    issueContainer.innerHTML = '';
     issues.forEach(issue => {
         const div = document.createElement('div');
         div.innerHTML = `
