@@ -1,9 +1,12 @@
 const issueContainer = document.getElementById('issue-container');
 const countIssueElement = document.getElementById('count-issue');
 
+const searchInput = document.getElementById('input-search');
+
 const allButton = document.getElementById('all-btn');
 const openButton = document.getElementById('open-btn');
 const closedButton = document.getElementById('closed-btn');
+
 
 const issueModal = document.getElementById('issueModal');
 
@@ -148,12 +151,12 @@ const displayData = (issues) => {
 //     "updatedAt": "2024-01-19T15:30:00Z"
 // }
 async function openDetailsModal(issueId) {
-    console.log(issueId);
+    // console.log(issueId);
     url = `https://phi-lab-server.vercel.app/api/v1/lab/issue/${issueId}`
     const res = await fetch(url);
     const data = await res.json();
     const issue = data.data;
-    console.log(issue);
+    // console.log(issue);
 
 
     issueModal.innerHTML = `
@@ -195,4 +198,21 @@ async function openDetailsModal(issueId) {
     `
     issueModal.showModal();
 }
+
+async function searchIssue(){
+    clearBtn();
+    
+    const searchText =  searchInput.value;
+    
+    url = `https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchText}`;
+    const res = await fetch(url);
+    const data = await res.json();
+    const issues = data.data;
+    // console.log(issues);
+
+    displayData(issues);
+    
+}
+
+
 loadIssue();
