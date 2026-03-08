@@ -5,6 +5,11 @@ const allButton = document.getElementById('all-btn');
 const openButton = document.getElementById('open-btn');
 const closedButton = document.getElementById('closed-btn');
 
+function clearBtn() {
+    allButton.classList.remove('btn-primary');
+    openButton.classList.remove('btn-primary');
+    closedButton.classList.remove('btn-primary');
+}
 
 const loadIssue = async () => {
     url = "https://phi-lab-server.vercel.app/api/v1/lab/issues";
@@ -12,22 +17,43 @@ const loadIssue = async () => {
     const data = await res.json();
     const issues = data.data;
 
-    allButton.addEventListener('click', () => {
-        displayData(issues);
-        return;
-    });
-    openButton.addEventListener('click', () => {
-        const openIssues = issues.filter(e => e.status == 'open');
-        displayData(openIssues);
-        return;
-    });
-    closedButton.addEventListener('click', () => {
-        const closedIssues = issues.filter(e => e.status == 'closed');
-        displayData(closedIssues);
-        return;
-    });
     displayData(issues);
 }
+const loadAll = async () => {
+    url = "https://phi-lab-server.vercel.app/api/v1/lab/issues";
+    const res = await fetch(url);
+    const data = await res.json();
+    const issues = data.data;
+
+    clearBtn();
+    allButton.classList.add('btn-primary');
+    displayData(issues);
+}
+const loadOpen = async () => {
+    url = "https://phi-lab-server.vercel.app/api/v1/lab/issues";
+    const res = await fetch(url);
+    const data = await res.json();
+    const issues = data.data;
+
+    clearBtn();
+    openButton.classList.add('btn-primary');
+    const openIssues = issues.filter(e => e.status == 'open');
+    displayData(openIssues);
+}
+const loadClosed = async () => {
+    url = "https://phi-lab-server.vercel.app/api/v1/lab/issues";
+    const res = await fetch(url);
+    const data = await res.json();
+    const issues = data.data;
+
+
+    clearBtn();
+    closedButton.classList.add('btn-primary');
+    const closedIssues = issues.filter(e => e.status == 'closed');
+    displayData(closedIssues);
+
+}
+
 
 
 // {
